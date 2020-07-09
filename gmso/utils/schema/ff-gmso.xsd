@@ -101,16 +101,30 @@
         <xsd:attribute name="expression" type="xsd:string" use="optional"/>
     </xsd:complexType>
 
-    <xsd:element name="DihedralTypes">
+    <xsd:element name="ProperTypes">
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="ParametersUnitDef" type="ParametersUnitDef" minOccurs="0" maxOccurs="unbounded"/>
-                <xsd:element name="DihedralType" type="DihedralType" maxOccurs="unbounded" minOccurs="0"/>
+                <xsd:element name="ProperType" type="ProperType" maxOccurs="unbounded" minOccurs="0"/>
             </xsd:sequence>
             <xsd:attribute name="expression" type="xsd:string"/>
         </xsd:complexType>
-        <xsd:key name="dihedral_type_key">
+        <xsd:key name="proper_type_key">
             <xsd:selector xpath="DihedralType"/>
+            <xsd:field xpath="@name"/>
+        </xsd:key>
+    </xsd:element>
+
+    <xsd:element name="ImproperTypes">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ParametersUnitDef" type="ParametersUnitDef" minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element name="ImproperType" type="ImproperType" maxOccurs="unbounded" minOccurs="0"/>
+            </xsd:sequence>
+            <xsd:attribute name="expression" type="xsd:string"/>
+        </xsd:complexType>
+        <xsd:key name="improper_type_key">
+            <xsd:selector xpath="ImproperType"/>
             <xsd:field xpath="@name"/>
         </xsd:key>
     </xsd:element>
